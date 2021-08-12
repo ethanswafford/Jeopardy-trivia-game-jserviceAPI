@@ -1,4 +1,36 @@
-// To run this assignment, right click on index.html in the Visual Studio Code file explorer to the left
-// and select "Open with Live Server"
+function getGeolocationAllow(data) {
+   let location = data.coords; 
+}
+function getGeolocationFail() {
+   const fallbackLocation = { latitude: 48.8575, longitude: 2.2982 }
+}
+navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
+console.log("hello friend")
 
-// YOUR CODE HERE!
+
+let nextBttn = document.getElementById('nextBttn');
+nextBttn.addEventListener('click', function (){
+   fetch('http://jservice.io/api/random')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        let answer = data[0].answer;
+        let question = data[0].question;
+        document.getElementById("question").innerHTML = question;
+        document.getElementById("answer").innerHTML = answer;
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
+});
+ 
