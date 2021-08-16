@@ -6,7 +6,7 @@ function getGeolocationFail() {
 }
 navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
 console.log("hello friend")
-
+let answer = ""
 
 let nextBttn = document.getElementById('nextBttn');
 nextBttn.addEventListener('click', function (){
@@ -18,13 +18,13 @@ nextBttn.addEventListener('click', function (){
         response.status);
         return;
       }
-      
+
       response.json().then(function(data) {
-        let answer = data[0].answer;
+        answer = data[0].answer;
         let question = data[0].question;
         document.getElementById("question").innerHTML = question;
         //document.getElementById("answer").innerHTML = answer;
-        revealAnswerButton("click", answer)
+        revealAnswerButton("click")
       });
     }
   )
@@ -35,6 +35,8 @@ nextBttn.addEventListener('click', function (){
 });
 function revealAnswerButton(){
    document.getElementById("answer").style.display = "block";
-
 }
+revealAnswer.addEventListener('click', function(){
+  document.getElementById("answer").innerHTML = answer;
+})
  
