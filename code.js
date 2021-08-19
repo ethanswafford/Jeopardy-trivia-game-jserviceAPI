@@ -21,7 +21,9 @@ nextBttn.addEventListener('click', function (){
 
       response.json().then(function(data) {
         answer = data[0].answer;
+        let category = data[0].category.title;
         let question = data[0].question;
+        document.getElementById("category").innerHTML = category;
         document.getElementById("question").innerHTML = question;
         //document.getElementById("answer").innerHTML = answer;
         revealAnswerButton("click")
