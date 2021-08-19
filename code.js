@@ -1,11 +1,11 @@
-function getGeolocationAllow(data) {
+/*function getGeolocationAllow(data) {
    let location = data.coords; 
 }
 function getGeolocationFail() {
    const fallbackLocation = { latitude: 48.8575, longitude: 2.2982 }
 }
 navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
-console.log("hello friend")
+console.log("hello friend")*/
 let answer = ""
 
 let nextBttn = document.getElementById('nextBttn');
