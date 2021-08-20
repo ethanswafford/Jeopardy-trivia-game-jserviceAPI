@@ -6,6 +6,7 @@ function getGeolocationFail() {
 }
 navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
 console.log("hello friend")*/
+let score = ""
 let answer = ""
 let submit = ""
 let nextBttn = document.getElementById('nextBttn');
@@ -44,15 +45,16 @@ function revealAnswerButton(){
   score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
   document.getElementById("nextBttn").innerHTML = '<div id="nextBttn">Reset Game</div>'
   nextBttn.addEventListener('click', function(){
-    // some how reset the game to the initial browser screen here
+    // can i some how reset the game to the initial browser screen here?
   })
 })
 }
 function submitAnswerButton(){
   document.getElementById("submit").innerHTML = submit;
   submit.addEventListener('click', function(){
-  userSubmit = document.querySelector("input").type = "answer" 
-  //compare userSubmit to answer=data[].answer boolean maybe?
+  userSubmit = document.querySelector("player-answer").style = "answer" 
+  //compare userSubmit to answer=data[].answer boolean maybe? or player-answer === answer?
+ //assign +1 to score for correct userSubmit clicks, else reset score to 0 on userSubmit clicks 
   })
 }
 
