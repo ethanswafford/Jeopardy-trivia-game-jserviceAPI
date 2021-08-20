@@ -10,21 +10,24 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
+
 }
 #question{
    background: rgb(238, 65, 238);
+   position: relative;
    border: 1px solid black;
    border-radius: 5px;
    padding: 10px;
-   margin-bottom: 10px;
+   margin-bottom: 5px;
+   justify-content: center;
 }
 #answer{
    background: yellow;
    border: 1px dashed black;
-   position: fixed;
+   position: relative;
    display: none;
    font-size: 2vw;
    text-align:center;
    align-items: center;
-   justify-content: center;
+   justify-content:left;
 }
