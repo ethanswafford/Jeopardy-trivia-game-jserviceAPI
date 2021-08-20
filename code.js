@@ -7,7 +7,7 @@ function getGeolocationFail() {
 navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
 console.log("hello friend")*/
 let answer = ""
-
+let submit = ""
 let nextBttn = document.getElementById('nextBttn');
 nextBttn.addEventListener('click', function (){
    fetch('http://jservice.io/api/random')
@@ -37,8 +37,23 @@ nextBttn.addEventListener('click', function (){
 });
 function revealAnswerButton(){
    document.getElementById("answer").style.display = "block";
-}
-revealAnswer.addEventListener('click', function(){
+
+  revealAnswer.addEventListener('click', function(){
   document.getElementById("answer").innerHTML = answer;
+  document.getElementById("score").innerHTML = score;
+  score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
+  document.getElementById("nextBttn").innerHTML = '<div id="nextBttn">Reset Game</div>'
+  nextBttn.addEventListener('click', function(){
+    // some how reset the game to the initial browser screen here
+  })
 })
+}
+function submitAnswerButton(){
+  document.getElementById("submit").innerHTML = submit;
+  submit.addEventListener('click', function(){
+  userSubmit = document.querySelector("input").type = "answer" 
+  //compare userSubmit to answer=data[].answer boolean maybe?
+  })
+}
+
  
