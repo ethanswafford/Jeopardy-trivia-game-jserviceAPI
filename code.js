@@ -6,7 +6,6 @@ function getGeolocationFail() {
 }
 navigator.geolocation.getCurrentPosition(getGeolocationAllow, getGeolocationFail)
 console.log("hello friend")*/
-let score = ""
 let answer = ""
 let submit = ""
 let nextBttn = document.getElementById('nextBttn');
@@ -28,6 +27,7 @@ nextBttn.addEventListener('click', function (){
         document.getElementById("question").innerHTML = question;
         //document.getElementById("answer").innerHTML = answer;
         revealAnswerButton("click")
+        submitAnswerButton("click")
       });
     }
   )
@@ -37,10 +37,9 @@ nextBttn.addEventListener('click', function (){
 
 });
 function revealAnswerButton(){
-   document.getElementById("answer").style.display = "block";
-
+  document.getElementById("answer").style.display = "block";
   revealAnswer.addEventListener('click', function(){
-  document.getElementById("answer").innerHTML = answer;
+  let revealAnswer =document.getElementById("answer").innerHTML = answer;
   document.getElementById("score").innerHTML = score;
   score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
   document.getElementById("nextBttn").innerHTML = '<div id="nextBttn">Reset Game</div>'
@@ -50,9 +49,17 @@ function revealAnswerButton(){
 })
 }
 function submitAnswerButton(){
+  let submit = userSubmit
   document.getElementById("submit").innerHTML = submit;
   submit.addEventListener('click', function(){
-  userSubmit = document.querySelector("player-answer").style = "answer" 
+  userSubmit = document.querySelector("userAnswer").style = "answer" 
+  document.getElementById("score").innerHTML = score;
+  score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
+  if (userSubmit.value.toString().toLowerCase() === data[0].answer) {
+     document.createElementById("div").innerHTML = "Correct!"
+  } else{
+    document.createElementById("div").innerHTML = "Incorrect!"
+  }
   //compare userSubmit to answer=data[].answer boolean maybe? or player-answer === answer?
  //assign +1 to score for correct userSubmit clicks, else reset score to 0 on userSubmit clicks 
   })
