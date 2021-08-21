@@ -43,25 +43,25 @@ function revealAnswerButton(){
   document.getElementById("score").innerHTML = score;
   score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
   document.getElementById("nextBttn").innerHTML = '<div id="nextBttn">Reset Game</div>'
-  nextBttn.addEventListener('click', function(){
+  nextBttn.addEventListener('click', function(){ 
+    location.reload() 
     // can i some how reset the game to the initial browser screen here?
   })
 })
 }
 function submitAnswerButton(){
-  let submit = userSubmit
   document.getElementById("submit").innerHTML = submit;
-  submit.addEventListener('click', function(){
-  userSubmit = document.querySelector("userAnswer").style = "answer" 
+  let userAnswer = document.getElementsByName("userAnswer").value
+  document.getElementById('submit').addEventListener('click', function(){
+    if (userAnswer.value.toString().toLowerCase() === data[0].answer.value) {
+      document.createElementById("div").innerHTML = "Correct!"
+   } else{
+     document.createElementById("div").innerHTML = "Incorrect!"
+     } 
   document.getElementById("score").innerHTML = score;
   score.innerHTML = '<div id="score"><b> STREAK:0 </b><span class="score-count"></span></div>';
-  if (userSubmit.value.toString().toLowerCase() === data[0].answer) {
-     document.createElementById("div").innerHTML = "Correct!"
-  } else{
-    document.createElementById("div").innerHTML = "Incorrect!"
-  }
-  //compare userSubmit to answer=data[].answer boolean maybe? or player-answer === answer?
- //assign +1 to score for correct userSubmit clicks, else reset score to 0 on userSubmit clicks 
+ //userAnswer to answer=data[].answer boolean maybe? or player-answer === answer?
+ //assign +1 to score for correct submitAnswerButton clicks, else reset score to 0 on userSubmit clicks 
   })
 }
 
