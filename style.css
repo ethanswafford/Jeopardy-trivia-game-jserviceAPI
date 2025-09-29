@@ -32,3 +32,8 @@ body {
    align-items: center;
    justify-content:left;
 }
+
+#question {
+   font-weight: bold;
+   color: black;
+}
