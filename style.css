@@ -5,6 +5,7 @@ body {
    top: 0;
    bottom: 0;
    position: fixed;
+   color: yellow;
    font-size: 2vw;
    text-align: center;
    display: flex;

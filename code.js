@@ -1,25 +1,37 @@
-/*initialize the two main variables and set them to empty strings for now */
-let answer = ""
-let submit = ""
+/*Declare the starting variables*/
+let playerAnswer = "";
+let currentScore = "0";
 
 /* make use of document object model to create a functional button that will fetch the next question*/
-let nextBttn = document.getElementById('nextBttn');
+const nextButton = document.getElementById('nextButton');
+const submitAnswer = document.getElementById('submitButton');
+const revealAnswer = document.getElementById('revealButton');
 
 /*chain the event listener(user clicks) and function for the API fetch query to the nextBttn */
 nextBttn.addEventListener('click', function () {
   
   
   /* API fetch request to jservice for a random trivia question is made*/
-   fetch('http://jservice.io/api/random')
-     .then(
+  fetch('https://opentdb.com/api.php?amount=10')
+
+    .then(res => res.json())
+    .then(data => {
+      let question = data.results[0].question;
+      let answer = data.results[0].correctAnswer;
+      console.log("Q", question);
+      console.log("A", answer);
+    });
   
      /*if a problem occurs with the request it is logged to the console with a status code */
-    function(response) {
-      if (response.status !== 200) {
+    function inspectApiResponse(response) {
+      if (res.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ' +
-        response.status);
+          response.status);
+        console.log("API response from opentdb.com: ", data);
+        console.log("Trivia question: ", data.results[0].question);
+        console.log("What is: ", data.results[0].correctAnswer);
         return;
-      }
+      };
 
          
          /* if the fetch request is fulfilled without error the response is parsed into json and used to build out the content for the game
@@ -47,14 +59,12 @@ nextBttn.addEventListener('click', function () {
         submitAnswerButton("click")
       });
     }
-   )
+  )
      
      /* this is a catch function for technical errors (i think....its been a couple years i could be worng here)*/
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
-
-});
 
 /* function to revealAnswerButton and display the answer on the html document and build the scoreboard, i believe i was running into 
 some bugs here andd was kinda hung up at this point on how to make the game function like i envisioned it, i do remember this is where
