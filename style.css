@@ -1,5 +1,5 @@
 body {
-   background-color: aqua;
+   background-image: url("./resources/Jeopardy_empty_set.jpg");
    left: 0;
    right: 0;
    top: 0;
@@ -13,7 +13,7 @@ body {
 
 }
 #question{
-   background: rgb(238, 65, 238);
+   background:white ;
    position: relative;
    border: 1px solid black;
    border-radius: 5px;
