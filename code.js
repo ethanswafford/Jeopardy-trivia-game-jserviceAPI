@@ -15,6 +15,17 @@ const userInput = document.getElementById ('userAnswer');
 
 /*chain the event listener(user clicks) and function for the API fetch query to the nextBttn */
 function fetchQuestion () {
+  // Hide Intro text "click next question to play"
+  const introText = document.getElementById('introText');
+  if (introText) {
+    introText.style.display = 'none';
+  }
+
+   // Re-enable input and submit for the new question
+  userInput.disabled = false;
+  submitButton.disabled = false;
+  userInput.value = '';
+
   /* API fetch request to jservice for a random trivia question is made*/
   fetch ('https://opentdb.com/api.php?amount=10')
     .then (res => {
@@ -28,6 +39,7 @@ function fetchQuestion () {
 
       answer = questionData.correct_answer;
 
+      categoryEl.innerHTML = questionData.category + ': ';
       categoryEl.innerHTML = questionData.category;
       questionEl.innerHTML = questionData.question;
       answerEl.style.display = 'none'; // hide old answer
@@ -45,6 +57,11 @@ function fetchQuestion () {
 function revealAnswerHandler () {
   answerEl.style.display = 'block';
   answerEl.innerHTML = `Correct Answer: <b>${answer}</b>`;
+
+  // Disable player input after button is clicked 
+  userInput.disabled = true;
+  submitButton.disabled = true;
+
   resetScore (); // if they give up, streak resets
 }
 

@@ -34,6 +34,80 @@ body {
 }
 
 #question {
+   background: white;
+   position: relative;
+   border: 2px solid black;
+   border-radius: 10px;
+   padding: 20px;
+   margin-bottom: 10px;
    font-weight: bold;
    color: black;
+   font-size: 2.5vw;
+   width: 80%;
+   max-width: 800px;
+}
+
+#answer {
+   background: yellow;
+   color: black;
+   border: 2px dashed black;
+   border-radius: 10px;
+   position: relative;
+   display: none;
+   font-size: 2vw;
+   text-align: center;
+   padding: 15px;
+   margin-top: 10px;
+   width: 80%;
+   max-width: 800px;
+}
+
+button {
+   background-color: green; 
+   color: white;
+   border: 2px solid black;
+   border-radius: 10px;
+   padding: 15px 25px;
+   font-size: 1.5vw;
+   cursor: pointer;
+   margin: 5px;
+   transition: transform 0.2s, background-color 0.2s;
+}
+
+#revealButton {
+  background-color: #FF4136; /* Red */
+  color: white;
+}
+
+button:hover {
+   background-color: #0055ff;
+   transform: scale(1.05);
+}
+
+#userAnswer {
+   padding: 15px;
+   font-size: 1.5vw;
+   border-radius: 10px;
+   border: 2px solid black;
+   width: 60%;
+   max-width: 400px;
+   margin-bottom: 10px;
+   text-align: center;
+}
+
+#score {
+   font-size: 2vw;
+   margin-bottom: 20px;
+   font-weight: bold;
+}
+
+#category {
+    color: red; /* Change to red if you prefer: color: red; */
+    font-size: 2.5vw; /* bigger than default */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px black; /* adds contrast with a shadow */
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black background */
 }
