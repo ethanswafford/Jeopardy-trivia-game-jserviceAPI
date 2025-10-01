@@ -1,16 +1,16 @@
 /*Declare the starting variables*/
 let answer = '';
 let playerAnswer = '';
-let currentScore = '0';
+let score = 0;
 
 /* make use of document object model to create a functional button that will fetch the next question*/
 const nextButton = document.getElementById ('nextButton');
-const submitAnswer = document.getElementById ('submitButton');
-const revealAnswer = document.getElementById ('revealButton');
+const submitButton = document.getElementById ('submitButton');
+const revealButton = document.getElementById ('revealButton');
 const categoryEl = document.getElementById ('category');
 const questionEl = document.getElementById ('question');
 const answerEl = document.getElementById ('answer');
-const scoreEl = document.getElementById ('score');
+const scoreEl = document.querySelector('.score-count');
 const userInput = document.getElementById ('userAnswer');
 
 /*chain the event listener(user clicks) and function for the API fetch query to the nextBttn */
@@ -66,7 +66,7 @@ function submitAnswerHandler () {
 
 /* === Scoreboard Functions === */
 function updateScore () {
-  scoreEl.innerHTML = `<b>STREAK:</b> ${score}`;
+  scoreEl.textContent = score;
 }
 
 function resetScore () {

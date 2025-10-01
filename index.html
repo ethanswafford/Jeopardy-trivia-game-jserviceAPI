@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags-->
+    <!-- Meta -->
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="Kenzie" />
-    <meta name="author" content="Kenzie" />
-    <meta name="keywords" content="Kenzie" />
-
-    <!-- Title Page-->
+    <!-- Title -->
     <title>JEOPARDY!</title>
 
-    <!-- CSS-->
-    <link href="style.css" rel="stylesheet" media="all" />
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet" />
   </head>
-
   <body>
     <div class="app">
-   
-      <!-- Top section -->
+      <!-- Header -->
       <header class="top-header">
-         <h1>JEOPARDY! A Trivia Based API Game!</h1>
-         <div id="score"><b> SCORE: </b><span class="score-count"></span></div>
+        <h1>JEOPARDY! A Trivia Based API Game!</h1>
+        <div id="score"><b>STREAK:</b> <span class="score-count">0</span></div>
       </header>
-      <div id ="container"
-      <h1>Its Trivia Time!!!<br></br>
-        click next question to play!
-      </h1><br></br>
-      <div id ="category"></div>
-      <div id="question"></div><br></br>
-      <div id="answer">
-        <form>
-         <button id="submit">click to submit answer </button>
-         <input name="playerAnswer" type="text"/>
-         <br></br>
-         <button id ="revealAnswer">Reveal Answer</button>
-         <br></br>
-       </form>
-      </div>
-      <br></br>
-      <button id="nextButton">Next Question</button>
-     <br></br>
+
+      <!-- Game container -->
+      <main>
+        <h2>It’s Trivia Time!!!</h2>
+        <p>Click next question to play!</p>
+
+        <div id="category"></div>
+        <div id="question"></div>
+
+        <!-- Answer + Input -->
+        <div>
+          <input id="userAnswer" type="text" placeholder="Type your answer here" />
+          <button id="submitButton">Submit Answer</button>
+          <button id="revealButton">Reveal Answer</button>
+        </div>
+
+        <!-- Answer reveal container -->
+        <div id="answer"></div>
+
+        <!-- Next question -->
+        <div>
+          <button id="nextButton">Next Question</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- JS -->
     <script src="code.js"></script>
   </body>
 </html>
